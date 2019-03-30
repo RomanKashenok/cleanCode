@@ -1,10 +1,17 @@
 package com.kashanok.cleancodeproject.data.entity
 
+import android.arch.persistence.room.*
 import com.google.gson.annotations.SerializedName
 
-internal data class VehiclePoiResponse(
+const val vehicleTableName = "vehicle"
+const val coordinateTableName = "coordinate"
+const val vehicleTableId = "id"
+
+@Entity(tableName = vehicleTableName)
+data class VehiclePoiResponse(
 
 	@SerializedName("coordinate")
+    @Embedded
 	val coordinate: CoordinateResponse,
 
 	@SerializedName("fleetType")
@@ -14,5 +21,7 @@ internal data class VehiclePoiResponse(
 	val heading: Double,
 
 	@SerializedName("id")
-	val id: Int
+    @PrimaryKey
+    @ColumnInfo(name = vehicleTableId)
+    val id: Int
 )

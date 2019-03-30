@@ -65,4 +65,12 @@ ext {
     espresseo = "com.android.support.test.espresso:espresso-core:3.0.2"
     okhhtp3MockServer = "com.squareup.okhttp3:mockwebserver:3.1.1"
 
+    // Database
+    def roomVersion = "1.1.1"
+    room = "android.arch.persistence.room:runtime:$roomVersion"
+    roomAnnotationProcessor = "android.arch.persistence.room:compiler:$roomVersion" // For Kotlin use kapt instead of annotationProcessor
+
+    // optional - RxJava support for Room
+    roomRxJava = "android.arch.persistence.room:rxjava2:$roomVersion"
+
 }

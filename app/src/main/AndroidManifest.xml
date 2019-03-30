@@ -17,7 +17,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:usesCleartextTraffic="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:name=".app.VehicleApplication">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

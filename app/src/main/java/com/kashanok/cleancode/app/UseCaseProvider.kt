@@ -13,7 +13,10 @@ object UseCaseProvider {
         return VehicleGetUseCaseDefault(
             getWorkScheduler(),
             getPostScheduler(),
-            VehicleRepositoryDefault(BuildConfig.API_ENDPOINT)
+            VehicleRepositoryDefault(
+                VehicleApplication.instance.applicationContext,
+                BuildConfig.API_ENDPOINT
+            )
         )
     }
 
