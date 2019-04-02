@@ -11,20 +11,8 @@ import io.reactivex.subjects.BehaviorSubject
 
 class VehicleListViewModel(vehiclesListUseCase: VehicleGetUseCase) : BaseViewModel() {
 
-//    val vehicleState = BehaviorSubject.create<VehicleState>()
     val vehicleState = MutableLiveData<VehicleState>()
-
     val vehicleClicked = MutableLiveData<Vehicle>()
-
-//    init {
-//        vehicleState.onNext(VehicleState.Progress)
-//        val disposable = vehiclesListUseCase.get().subscribe({
-//            vehicleState.onNext(VehicleState.Done(it))
-//        }, {
-//            vehicleState.onNext(VehicleState.Error(it))
-//        })
-//        disposableBag.add(disposable)
-//    }
 
     init {
         vehicleState.value = VehicleState.Progress
@@ -42,7 +30,7 @@ class VehicleListViewModel(vehiclesListUseCase: VehicleGetUseCase) : BaseViewMod
     }
 
     private fun performExceptionTypeAction(it: AppException) {
-        Toast.makeText(VehicleApplication.instance.applicationContext, "Exception occured: $it", Toast.LENGTH_LONG).show()
+        Toast.makeText(VehicleApplication.instance.applicationContext, "Exception occurred: $it", Toast.LENGTH_LONG).show()
     }
 
     fun vehicleClick(vehicle: Vehicle) {

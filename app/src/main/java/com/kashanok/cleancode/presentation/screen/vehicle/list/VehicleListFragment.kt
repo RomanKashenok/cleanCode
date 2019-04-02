@@ -68,7 +68,6 @@ class VehicleListFragment : BaseMvvmFragment<VehicleListViewModel>() {
         observeVehicleState()
     }
 
-
     override fun initView() {
         observeVehicleState()
     }
@@ -86,13 +85,13 @@ class VehicleListFragment : BaseMvvmFragment<VehicleListViewModel>() {
     private fun processState(state: VehicleState) {
         when (state) {
             is VehicleState.Progress -> {
-                //SHOW PROGRESS
+                progressBar.visibility = View.VISIBLE
             }
             is VehicleState.Done -> {
                 val list = state.vehicleList
                 Toast.makeText(context, "Received list size: ${list.size}", Toast.LENGTH_LONG).show()
                 (rvVehicles.adapter as VehicleListAdapter).setNewItems(list)
-                // PUT INTO ADAPTER
+                progressBar.visibility = View.INVISIBLE
             }
             is VehicleState.Error -> {
                 Toast.makeText(context, "Error: ${state.throwable.localizedMessage}", Toast.LENGTH_LONG).show()

@@ -30,6 +30,5 @@ abstract class BaseMvvmFragment<VM: BaseViewModel> : Fragment() {
         initView()
     }
 
-
     abstract fun initView()
 }
