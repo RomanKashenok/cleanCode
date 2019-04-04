@@ -16,7 +16,8 @@ object UseCaseProvider {
             getPostScheduler(),
             VehicleRepositoryDefault(
                 BuildConfig.API_ENDPOINT,
-                VehicleService(VehicleApplication.instance.applicationContext)
+                VehicleService(VehicleApplication.instance.applicationContext),
+                        VehicleApplication.instance.applicationContext
             )
         )
     }

@@ -1,4 +1,4 @@
-package com.kashanok.data.rest
+package com.kashanok.data.net
 
 import com.kashanok.data.BuildConfig
 import okhttp3.OkHttpClient

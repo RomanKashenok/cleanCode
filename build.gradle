@@ -73,4 +73,10 @@ ext {
     // optional - RxJava support for Room
     roomRxJava = "android.arch.persistence.room:rxjava2:$roomVersion"
 
+    //Retrofit
+    def retrofit = "2.5.0"
+    retrrofit = "com.squareup.retrofit2:retrofit:2.3.0"
+    retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:$retrofit"
+
 }

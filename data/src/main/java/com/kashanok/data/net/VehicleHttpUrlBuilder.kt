@@ -1,4 +1,4 @@
-package com.kashanok.data.rest
+package com.kashanok.data.net
 
 import com.kashanok.domain.entity.vehicle.CoordinateParam
 import okhttp3.HttpUrl

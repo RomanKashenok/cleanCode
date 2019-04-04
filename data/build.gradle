@@ -48,4 +48,9 @@ dependencies {
 
     // Modules
     api project(path: ":domain")
+
+    //Retorfit
+    implementation rootProject.retrrofit
+    implementation rootProject.retrofitRxAdapter
+    implementation rootProject.retrofitGsonConverter
 }
