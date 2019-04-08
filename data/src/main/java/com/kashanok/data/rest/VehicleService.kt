@@ -18,43 +18,8 @@ class VehicleService(context: Context) {
     private val api = provideApi()
     private var disposable: Disposable? = null
 
-//    fun getVehicles(coords: Pair<CoordinateParam, CoordinateParam>, url: String): Single<List<Vehicle>> {
-//        val vehiclesList =
-//            vehicleDao
-//                .get()
-//                .flatMap { it ->
-//                    if (!it.isNullOrEmpty()) {
-//                        Single.just(it)
-//                    } else {
-//                        remoteRequest(coords, url)
-//                    }
-//                }.map { vehicleResponse ->
-//                    vehicleResponse.map { it.responseToEntity() }
-//                }
-//        return vehiclesList
-//    }
-
-//    private fun remoteRequest(coords: Pair<CoordinateParam, CoordinateParam>, url: String)
-//            : Single<List<VehiclePoiResponse>?> {
-//
-//        return requestData(coords, url).map { it.poiList }
-//
-//        return Single.create<VehicleResponse> { subscriber ->
-//            try {
-//                val response: Single<VehicleResponse> = requestData(coords, url)
-//                vehicleDao.delete()
-//                response.poiList?.let { vehicles ->
-//                    vehicleDao.insert(vehicles)
-//                }
-//                subscriber.onSuccess(response)
-//            } catch (e: Exception) {
-//                subscriber.onError(e)
-//            }
-//        }.map { it.poiList }
-//    }
-
     @Throws(Exception::class)
-    public fun requestData(coords: Pair<CoordinateParam, CoordinateParam>/*, url: String*/): Single<VehicleResponse> {
+    fun requestData(coords: Pair<CoordinateParam, CoordinateParam>/*, url: String*/): Single<VehicleResponse> {
         val vehicleResponse = api.getVehicle(coords.first.lat, coords.first.long, coords.second.lat, coords.second.long)
 
         disposable = vehicleResponse
@@ -70,12 +35,5 @@ class VehicleService(context: Context) {
 
 
         return vehicleResponse
-//        val requestUrl = VehicleHttpUrlBuilder.buildFetchVehiclesUrl(coords, url) ?: throw AppException()
-//        val client = VehicleHttpClientBuilder.getHttpClient()
-//
-//        val request = Request.Builder().url(requestUrl).build()
-//        val response = client.newCall(request).execute()
-//        val body = response.body()?.string() ?: throw Exception("Response body empty")
-//        return Gson().fromJson(body, VehicleResponse::class.java)
     }
 }
