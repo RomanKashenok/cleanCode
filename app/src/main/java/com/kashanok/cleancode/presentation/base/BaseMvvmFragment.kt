@@ -27,7 +27,8 @@ abstract class BaseMvvmFragment<VM: BaseViewModel> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
-
+    abstract fun initView()
 }

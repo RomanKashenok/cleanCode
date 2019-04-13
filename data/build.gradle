@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -40,6 +41,16 @@ dependencies {
     implementation rootProject.okhttp
     implementation rootProject.okhttpLogging
 
+    //Database
+    implementation rootProject.room
+    kapt rootProject.roomAnnotationProcessor
+    implementation rootProject.roomRxJava
+
     // Modules
     api project(path: ":domain")
+
+    //Retorfit
+    implementation rootProject.retrrofit
+    implementation rootProject.retrofitRxAdapter
+    implementation rootProject.retrofitGsonConverter
 }

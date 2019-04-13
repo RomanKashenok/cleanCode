@@ -13,8 +13,8 @@ abstract class BaseMvvmActivity<VM : BaseViewModel> : AppCompatActivity() {
     @LayoutRes
     protected abstract fun provideLayoutId(): Int
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         viewModel = provideViewModel()
         setContentView(provideLayoutId())
     }
